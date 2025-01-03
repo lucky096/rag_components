@@ -19,7 +19,7 @@ def create_retriever(llm:BaseLanguageModel, vectorstore:Optional[VectorStore]=No
     if Config.Retriever.USE_RERANKER:
         retriever = ContextualCompressionRetriever(base_compressor=create_reranker(), base_retriever=retriever)
 
-    if Config.Retriver.USE_CHAIN_FILTER:
+    if Config.Retriever.USE_CHAIN_FILTER:
         retriever = ContextualCompressionRetriever(base_compressor=LLMChainFilter.from_llm(llm), base_retriever=retriever)
     
     return retriever

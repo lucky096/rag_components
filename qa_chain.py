@@ -48,7 +48,7 @@ def format_documents(documents: List[Document]) -> str:
     return remove_links("\n".join(texts))
 
 def create_chain(llm: BaseLanguageModel, retriever: VectorStoreRetriever) -> Runnable:
-    prompt = ChatPromptTemplate.from_message(
+    prompt = ChatPromptTemplate.from_messages(
         [
             ("system", SYSTEM_PROMPT),
             MessagesPlaceholder("chat_history"),

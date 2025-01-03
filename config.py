@@ -4,7 +4,7 @@ from pathlib import Path
 
 class Config:
     class Path:
-        ROOT_DIR = Path(os.getenv("APP_HOME",  Path(__file__).parent.parent))
+        ROOT_DIR = Path(os.getenv("APP_HOME",  Path(__file__).parent))
         DATABASE_DIR = ROOT_DIR / "docs-db"
         DOCUMENTS_DIR = ROOT_DIR / "tmp"
         IMAGES_DIR = ROOT_DIR / "images"
