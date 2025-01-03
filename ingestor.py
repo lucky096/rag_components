@@ -12,7 +12,7 @@ from config import Config
 
 class Ingestor:
     def __init__(self):
-        self.embeddings = FastEmbedEmbeddings(Config.Model.EMBEDDINGS)
+        self.embeddings = FastEmbedEmbeddings(Embeddings=Config.Model.EMBEDDINGS)
         self.semantic_splitter = SemanticChunker(self.embeddings, breakpoint_threshold_type="interquartile")
         self.recursive_splitter = RecursiveCharacterTextSplitter(chunk_size=2048, chunk_overlap=128, add_start_index=True)
 
@@ -25,6 +25,6 @@ class Ingestor:
         return Qdrant.from_documents(
             documents=documents,
             embedding=self.embeddings,
-            path=Config.path.DATABASE_DIR,
+            path=Config.Path.DATABASE_DIR,
             collection_name=Config.Database.DOCUMENTS_COLLECTION
         )
