@@ -49,8 +49,8 @@ async def ask_chain(question: str, chain):
 def show_upload_documents():
     holder = st.empty()
     with holder.container():
-        st.header("Upload Documents")
-        st.subheader("Upload the documents you want to search through")
+        st.header("Get Answers From Your Documents")
+        st.subheader("Upload your documents")
         uploaded_files = st.file_uploader(label="Upload files", type=["pdf"], accept_multiple_files=True)
     
     if not uploaded_files:
@@ -75,7 +75,7 @@ def show_chat_input(chain):
             st.markdown(prompt)
         asyncio.run(ask_chain(prompt, chain))
 
-st.set_page_config(page_title="Document Search Engine", page_icon="🔍")
+st.set_page_config(page_title="Get Answers From Your Documents", page_icon="🔍")
 
 st.html(
     """
