@@ -18,5 +18,5 @@
 
 ### RAG Chat Interface
 
-[Page1](images/first_page.png)
-[Page2](images/second_page.png)
+![Page1](images/first_page.png)
+![Page2](images/second_page.png)
