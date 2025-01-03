@@ -1,13 +1,12 @@
-from typing import Optional
-
-from sqlalchemy import true
+import os
+from pathlib import Path
 
 
 class Config:
     class Path:
-        ROOT_DIR = "/Users/lucky/Workspace/rag_components/data/"
-        DATABASE_DIR = ROOT_DIR / "database"
-        DOCUMENTS_DIR = ROOT_DIR / "documents"
+        ROOT_DIR = Path(os.getenv("APP_HOME",  Path(__file__).parent.parent))
+        DATABASE_DIR = ROOT_DIR / "docs-db"
+        DOCUMENTS_DIR = ROOT_DIR / "tmp"
         IMAGES_DIR = ROOT_DIR / "images"
 
     class Database:
@@ -26,4 +25,5 @@ class Config:
         USE_RERANKER = True
         USE_CHAIN_FILTER = False
 
-    
+    DEBUG = True
+    CONVERSATION_MESSAGES_LIMIT = 6
